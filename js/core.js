@@ -38,6 +38,19 @@ jQuery(document).ready(function ($) {
         $('.metamask-info').hide();
         $('.w_address, .w_balance').html('Error');
     }
+	alert("Outside of jplayer");
+	/* jPlayer! */
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+		  $(this).jPlayer("setMedia", {
+			mp3: "media/insomniac_olympics.flac",
+			oga: "audio/TEDxPhoenix-KelliAnderson-DisruptiveWonderforaChange.ogg"
+		  });
+		},
+		swfPath: "./js",
+		supplied: "mp3,oga"
+	});
+	
 });
 
 function timeConverter(UNIX_timestamp) {
@@ -57,3 +70,8 @@ function timeConverter(UNIX_timestamp) {
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
 }
+
+/* jPlayer code! */
+$(document).ready(function(){
+  
+});

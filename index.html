@@ -11,6 +11,10 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link type="text/css" href="css/style.css" rel="stylesheet" />
+		<script type="text/javascript" src="./js/jquery.jplayer.min.js"></script>
+
 		<script src="js/web3.js"></script>
 		<script src="js/core.js"></script>
 		<title>Trilla</title>
@@ -19,7 +23,46 @@
 	<div class="container pt-5">
 		<div class="row">
 		<div class="col">
-			<audio controls src="./media/do_while.mp3">Your browser does not support the <code>audio</code></audio>
+			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+ 
+			<div id="jp_container_1" class="jp-audio">
+			  <div class="jp-type-single">
+			 
+				<div class="jp-title">
+				  <ul>
+					<li>Song Name</li>
+				  </ul>
+				</div>
+			 
+				<div class="jp-gui jp-interface">
+			 
+					<ul class="jp-controls">
+					  <li><a href="javascript:;" class="jp-play" tabindex="1">&#61515;</a></li>
+					  <li><a href="javascript:;" class="jp-pause" tabindex="1">&#61516;</a></li>
+					  <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">&#61480;</a></li>
+					  <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">&#61478;</a></li>
+					</ul>
+			 
+					<div class="jp-progress">
+					  <div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					  </div>
+					</div>
+			 
+					<div class="jp-time-holder">
+					  <div class="jp-current-time"></div>
+					</div>
+			 
+					<div class="jp-volume-bar">
+					  <div class="jp-volume-bar-value"></div>
+					</div>
+			 
+				<div class="jp-no-solution">
+				  <span>Update Required</span>
+				  To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				</div>
+			  </div>
+			</div>
 		</div>
 		</div>
 		<div class="row">
