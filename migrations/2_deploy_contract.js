@@ -1,5 +1,5 @@
-var Mock = artifacts.require("./Mock.sol");
+var SongUpload = artifacts.require("./SongUpload.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Mock);
+  deployer.deploy(SongUpload);
 };
