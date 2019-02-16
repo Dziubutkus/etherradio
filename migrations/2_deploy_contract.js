@@ -1,5 +1,5 @@
-var SongUpload = artifacts.require("./SongUpload.sol");
+var Etherradio = artifacts.require("./Etherradio.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(SongUpload);
+  deployer.deploy(Etherradio);
 };

@@ -3,11 +3,20 @@ pragma solidity ^0.5.0;
 import "./Ownable.sol";
 import "./SafeMath.sol";
 
-contract SongUpload is Ownable {
+contract Etherradio is Ownable {
     using SafeMath for uint;
-    string public songName;
+
+
+    // Total ether collected
+    uint bank;
+    // Array of artists
     address payable[] public artists;
+    mapping (string => mapping (address[] => uint[]));
     mapping (address => bool) public allowedUsers;
+
+
+
+    string public songName;
     mapping (address => uint) public royalties;
     uint public moneyCollected;
 
@@ -30,6 +39,6 @@ contract SongUpload is Ownable {
         uint moneyToTransfer = moneyCollected.mul(royalties[msg.sender]).div(100);
         msg.sender.transfer(moneyToTransfer);
     }
-
+*/
 
 }
