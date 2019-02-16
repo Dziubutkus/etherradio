@@ -2,15 +2,22 @@ var mockAddress = "0x0f138740e225f0DA140e32F1594DD4257CEaf036";
 var mockContract = null;
 
 // Declare web3 library
-if (typeof web3 !== 'undefined') {
-    web3 = new Web3(web3.currentProvider);
-} else {
+//if (typeof web3 !== 'undefined') {
+    //web3 = new Web3(web3.currentProvider);
+//} else {
     // web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/ef4aee25daf64b56904871052a066b2b"));
-}
+//}
 
+
+const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby');
+const web3 = new Web3(portis.provider);
+portis.provider.enable().then(console.log)
+
+
+/*
 // Checking if user have existing web3 provider
-if (typeof web3 !== 'undefined') {
-    web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
+//if (typeof web3 !== 'undefined') {
+    //web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
 
     // Join Smart Contract
     var mockABI = $.getJSON("json/MockABI.json", function(contractABI) {
@@ -18,7 +25,7 @@ if (typeof web3 !== 'undefined') {
         // window.lotteryContract = lotteryContractABI.at(window.lotteryAddress);
     });
 
-}
+//}
 
 // Website on load processes
 jQuery(document).ready(function ($) {
@@ -70,8 +77,12 @@ function timeConverter(UNIX_timestamp) {
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
 }
+<<<<<<< HEAD
 
 /* jPlayer code! */
 $(document).ready(function(){
   
 });
+=======
+*/
+>>>>>>> fbc32000e8fcc86953456137e219971f1786a293
