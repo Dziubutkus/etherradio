@@ -71,6 +71,7 @@ jQuery(document).ready(function ($) {
             console.error(err);
             console.warn(resp);
         });
+
     });
     // Add information in website from MetaMask
     /*
@@ -161,4 +162,5 @@ function drawBar(x1, y1, x2, y2, width,frequency){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);
     ctx.stroke();
+
 }
