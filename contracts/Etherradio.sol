@@ -49,5 +49,10 @@ contract Etherradio is Ownable, EtherToken {
         emit AddedSong(songsTemp.songName);
     }
 
+    function listen() public {
+        require(balanceOf(msg.sender) >= 1);
+        Song memory temp = songs[0];
+        _transfer(msg.sender, temp.songOwner, 10);
+    }
 
 }
