@@ -26,7 +26,7 @@ contract Etherradio is Ownable, EtherToken {
     event AddedSong(string _songName);
 
     constructor(string memory name, string memory symbol, uint8 decimals)
-        EtherToken(name, symbol, decimals)
+    EtherToken(name, symbol, decimals)
     public {
 
     }

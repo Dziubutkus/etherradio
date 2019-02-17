@@ -20,7 +20,7 @@ contract EtherToken is ERC20Mintable, ERC20Detailed {
     // exchange ether to tokens
     function convert() public payable {
         require(msg.value > 0);
-        uint tokensToMint = msg.value.mul(rate);
+        uint tokensToMint = msg.value.mul(10000000);
         _mint(msg.sender, tokensToMint);
     }
 
