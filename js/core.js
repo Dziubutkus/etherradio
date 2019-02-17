@@ -1,4 +1,4 @@
-var mockAddress = "0x5fEA73469eC15ee5feC1E27E651b40F80BeECa42";
+var mockAddress = "0x8CdeDAB836d2Fa2b0BEf700eC69994a27F063450";
 var mockContract = null;
 // -------- Visualizer Vars
 var canvas, ctx, center_x, center_y, radius, bars,
@@ -39,7 +39,7 @@ if (typeof web3 !== 'undefined') {
 jQuery(document).ready(function ($) {
     "use strict";
 
-    $('#play').click(function() {
+    $('.jp-play').click(function() {
         window.radioContract.methods.listen().send({from: defaultAccount}, function(err, resp) {
             console.error(err);
             console.warn(resp);
@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	$("#exchange").click(function() {
-        window.radioContract.methods.convert().send({from: defaultAccount, value: 1000000000000000}, function(err, resp) {
+        window.radioContract.methods.convert().send({from: defaultAccount, value: 10000000000000000}, function(err, resp) {
             console.error(err);
             console.warn(resp);
         });
