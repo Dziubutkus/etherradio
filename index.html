@@ -15,7 +15,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/normalize.css">
 
-		<script type="text/javascript" src="./js/jquery.jplayer.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.jplayer.js"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
@@ -24,14 +24,19 @@
 		<script src="js/core.js"></script>
 		<title>Trilla</title>
 	</head>
-	<body> 
-	<div class="container pt-5">
-		<div class="row">
-		<div class="col">
+	<body onload="initPage()">
+		<header>
+			<h1>ETHERRADIO</h1>
+			<a href="#">Exchange</a>
+		</header>
+		<canvas id="renderer"></canvas>
+		<img id="cover-art" src="./media/music-by-cavelight.jpg" alt="album cover art"></img>
+	<div class="main">
+		<div id="player">
 			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 
 			<div id="jp_container_1" class="jp-audio">
-			  <div class="jp-type-single">
+			<div class="jp-type-single">
 
 				<div class="jp-title">
 				  <ul>
@@ -63,17 +68,17 @@
 					  <div class="jp-volume-bar-value"></div>
 					</div>
 
-				<div class="jp-no-solution">
-				  <span>Update Required</span>
-				  To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+					<div class="jp-no-solution">
+					  <span>Update Required</span>
+					  To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+					</div>
 				</div>
-			  </div>
 			</div>
-		</div>
-		</div>
-		<div class="row">
-			<div class="col-md-8">
-				<div class="card metamask-info">
+			</div>
+			</div>
+		<div class="wallet">
+			<div>
+				<div class="card web3-info">
 					<div class="card-body">
 						<div class="alert alert-warning mb-0" role="alert">
 							Your Wallet address: <strong class="w_address">Loading</strong><br>
@@ -86,8 +91,8 @@
 						<h3>Owner menu</h3>
 						<hr>
 						<div class="row px-3">
-							<button type="button" class="btn btn-primary btn-sm mr-2" onclick="return confirm('Are you sure want to finish lottery?');">Finish lottery</button>
-							<button type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to cancel lottery?');">Cancel lottery</button>
+							<button type="button" class="btn btn-primary btn-sm mr-2" onclick="return confirm('Are you sure want to finish lottery?');">Withdraw</button>
+							<button type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to cancel lottery?');">Remove listing</button>
 							<button type="button" class="btn btn-primary btn-sm text-right ml-auto">Restart lottery</button>
 						</div>
 					</div>
