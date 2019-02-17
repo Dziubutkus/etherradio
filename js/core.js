@@ -10,7 +10,7 @@ bars = 200;
 bar_width = 2;
 // ------ End Visualizer Vars --------
 
-srcMp3 = "media/insomniac_olympics.flac";
+srcMp3 = "./media/insomniac_olympics.flac";
 srcOga = "audio/TEDxPhoenix-KelliAnderson-DisruptiveWonderforaChange.ogg";
 
 const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby');
@@ -87,7 +87,6 @@ function initPage(){
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
 
-    audio.src = src; // the source path
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
