@@ -48,11 +48,11 @@ jQuery(document).ready(function ($) {
                 alert('Please wait, you will get your ticket soon!');
             })
             .on('receipt', function (receipt) {
-                alert('Your ticket arrived!');
+				alert("receipted");
+				console.log("recipted");
+                $("#jquery_jplayer_1").jPlayer("play");
                 //getAndUpdateInfoFromSC();
             });
-			audio.play();
-			animationLooper();
 	});
 	/* jPlayer! */
 	$("#jquery_jplayer_1").jPlayer({
