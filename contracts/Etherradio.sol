@@ -32,7 +32,7 @@ contract Etherradio is Ownable, EtherToken {
     }
 
     function () external payable {
-        convert();
+        //convert();
     }
 
     function addSong(string memory _songName, address payable[] memory _artists, uint[] memory _royalties) onlyOwner public {
