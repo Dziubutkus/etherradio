@@ -1,4 +1,4 @@
-var mockAddress = "0x0f138740e225f0DA140e32F1594DD4257CEaf036";
+var mockAddress = "0x9a6cD521EE8d43A17Be8138f962793385Cee158E";
 var mockContract = null;
 
 // Declare web3 library
@@ -13,24 +13,44 @@ const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby');
 const web3 = new Web3(portis.provider);
 portis.provider.enable().then(console.log)
 
+let defaultAccount;
+portis.onLogin((walletAddress, email) => {
+    $('.w_address').html(walletAddress);
+    defaultAccount = walletAddress;
+});
 
-/*
+
 // Checking if user have existing web3 provider
-//if (typeof web3 !== 'undefined') {
-    //web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
-
-    // Join Smart Contract
+if (typeof web3 !== 'undefined') {
+    web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
+    console.log("lox");
     var mockABI = $.getJSON("json/MockABI.json", function(contractABI) {
-        window.lotteryContract = new web3.eth.Contract(contractABI, window.mockAddress);
-        // window.lotteryContract = lotteryContractABI.at(window.lotteryAddress);
+        window.radioContract = new web3.eth.Contract(contractABI, window.mockAddress);
+        //window.lotteryContract = lotteryContractABI.at(window.lotteryAddress);
     });
 
-//}
+}
 
 // Website on load processes
 jQuery(document).ready(function ($) {
     "use strict";
+
+    $('#play').click(function() {
+        console.log(defaultAccount);
+        window.radioContract.methods.listen().send({from: defaultAccount}, function(err, resp) {
+            console.error(err);
+            console.warn(resp);
+        })
+            .on('transactionHash', function (hash) {
+                alert('Please wait, you will get your ticket soon!');
+            })
+            .on('receipt', function (receipt) {
+                alert('Your ticket arrived!');
+                //getAndUpdateInfoFromSC();
+            });
+    });
     // Add information in website from MetaMask
+    /*
     if (typeof web3 !== 'undefined') {
         console.warn("asdsad")
 
@@ -41,12 +61,10 @@ jQuery(document).ready(function ($) {
                 $('.w_balance').html(balance + ' ETH');
             });
         }, 50);
-    } else {
-        $('.metamask-info').hide();
-        $('.w_address, .w_balance').html('Error');
     }
+    */
 });
-
+/*
 function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp * 1000);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
