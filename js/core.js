@@ -27,7 +27,6 @@ portis.onLogin((walletAddress, email) => {
 // Checking if user have existing web3 provider
 if (typeof web3 !== 'undefined') {
     web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
-    console.log("lox");
     var mockABI = $.getJSON("json/MockABI.json", function(contractABI) {
         window.radioContract = new web3.eth.Contract(contractABI, window.mockAddress);
         //window.lotteryContract = lotteryContractABI.at(window.lotteryAddress);
@@ -74,24 +73,13 @@ jQuery(document).ready(function ($) {
 
     setTimeout(function () {
         //window.radioContract.methods.convert().send({from: defaultAccount, value: 10000000000000000}, function(err, resp)
-        window.radioContract.methods.balanceOf.call(defaultAccount, function (err, resp) {
-            $('.w_balance').html(' ETR');
+        window.radioContract.methods.balanceOf(defaultAccount).call().then(function (tokens) {
+            $('.w_balance').html(tokens + ' ETR');
+            console.error(err);
+            console.warn(resp);
         });
     }, 50);
-    // Add information in website from MetaMask
-    //$('.w_balance').html(walletAddress);
-    /*
-    if (typeof web3 !== 'undefined') {
-        console.warn("asdsad")
-        setTimeout(function () {
-            $('.w_address').html(web3.currentProvider.selectedAddress);
-            web3.eth.getBalance(web3.currentProvider.selectedAddress, function (err, resp) {
-                var balance = web3.utils.fromWei(resp, 'ether');
-                $('.w_balance').html(balance + ' ETH');
-            });
-        }, 50);
-    }
-    */
+
 });
 
 function initPage(){
