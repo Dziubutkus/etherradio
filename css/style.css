@@ -35,6 +35,12 @@ header {
 	src: url("/fonts/DISKOPIA2.0.ttf");
 
 }
+
+.por_portis-container>.por_portis-widget-frame {
+	top: 3.5em;
+	right: 10px;
+}
+
 header>h1 {
 	font-family: diskopia;
 	font-size: 2.5em;
