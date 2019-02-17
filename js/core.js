@@ -3,37 +3,42 @@ var mockContract = null;
 
 // Declare web3 library
 //if (typeof web3 !== 'undefined') {
-    //web3 = new Web3(web3.currentProvider);
+//    web3 = new Web3(web3.currentProvider);
 //} else {
-    // web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/ef4aee25daf64b56904871052a066b2b"));
+//    web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/ef4aee25daf64b56904871052a066b2b"));
 //}
+console.log('hello1')
 
-
-const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby');
+const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby', {scope: ["email"]});
 const web3 = new Web3(portis.provider);
-portis.provider.enable().then(console.log)
+
+portis.provider.enable().then(function(accounts) {
+	console.log(accounts[0])
+})
+
+portis.onLogin((walletAddress, email) => {
+  console.log(walletAddress, email);
+});
 
 
-/*
 // Checking if user have existing web3 provider
-//if (typeof web3 !== 'undefined') {
+if (typeof web3 !== 'undefined') {
     //web3.eth.defaultAccount = web3.currentProvider.selectedAddress;
 
     // Join Smart Contract
-    var mockABI = $.getJSON("json/MockABI.json", function(contractABI) {
-        window.lotteryContract = new web3.eth.Contract(contractABI, window.mockAddress);
+    //var mockABI = $.getJSON("json/MockABI.json", function(contractABI) {
+        //window.lotteryContract = new web3.eth.Contract(contractABI, window.mockAddress);
         // window.lotteryContract = lotteryContractABI.at(window.lotteryAddress);
-    });
+    //});
 
-//}
-*/
+}
+
 // Website on load processes
 jQuery(document).ready(function ($) {
     "use strict";
-	/*
     // Add information in website from MetaMask
+	console.log(typeof web3);
     if (typeof web3 !== 'undefined') {
-        console.warn("asdsad")
 
         setTimeout(function () {
             $('.w_address').html(web3.currentProvider.selectedAddress);
@@ -46,8 +51,6 @@ jQuery(document).ready(function ($) {
         $('.metamask-info').hide();
         $('.w_address, .w_balance').html('Error');
     }
-	alert("Outside of jplayer");
-	*/
 	/* jPlayer! */
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function () {
