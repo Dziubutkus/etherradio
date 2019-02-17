@@ -45,10 +45,8 @@ jQuery(document).ready(function ($) {
             console.warn(resp);
         })
             .on('transactionHash', function (hash) {
-                alert('Please wait, you will get your ticket soon!');
             })
             .on('receipt', function (receipt) {
-                alert('Your ticket arrived!');
                 //getAndUpdateInfoFromSC();
             });
 			audio.play();
@@ -73,7 +71,15 @@ jQuery(document).ready(function ($) {
         });
 
     });
+
+    setTimeout(function () {
+        //window.radioContract.methods.convert().send({from: defaultAccount, value: 10000000000000000}, function(err, resp)
+        window.radioContract.methods.balanceOf.call(defaultAccount, function (err, resp) {
+            $('.w_balance').html(' ETR');
+        });
+    }, 50);
     // Add information in website from MetaMask
+    //$('.w_balance').html(walletAddress);
     /*
     if (typeof web3 !== 'undefined') {
         console.warn("asdsad")
