@@ -41,7 +41,7 @@ header {
 	right: 10px;
 }
 
-header>h1 {
+li>h1 {
 	font-family: diskopia;
 	font-size: 2.5em;
 	text-shadow: 2px 2px purple;
@@ -51,6 +51,12 @@ header {
 	clear: left;
 	text-align: left;
 }
+header ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
 
 .wallet {
 	display: block;
@@ -58,6 +64,10 @@ header {
 	top: 3.5em;
 	right: 10px;
 	float: right;
+}
+
+.card-body {
+	background-color: rgba(255,255,255,0.5);
 }
 
 #player {
