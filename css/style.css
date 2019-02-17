@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "FontAwesome";
+    src: url("fonts/fontawesome-webfont.eot");
+    src: url("fonts/fontawesome-webfont.eot?#iefix") format("eot"), 
+       url("fonts/fontawesome-webfont.woff") format("woff"), 
+       url("fonts/fontawesome-webfont.ttf") format("truetype"), 
+       url("fonts/fontawesome-webfont.svg#FontAwesome") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+i {
+	font-size: 2em;
+}
+a {
+    text-decoration: none;
+}
+.jp-jplayer,.jp-audio {
+    width: 420px;
+    margin: 50px auto;
+}
+
+.jp-title {
+	font-size: 12px;
+	text-align: center;
+	color: #999;
+}
+
+.jp-controls {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.jp-gui {
+  #-webkit-box-shadow:  0px 1px 1px 0px rgba(0, 0, 0, .1);    
+    box-shadow:  0px 1px 1px 0px rgba(0, 0, 0, .1);
+    border: 3px solid #101327;
+    border-radius: 3px;
+    padding: 5pm;
+    margin-top: 10px;
+}

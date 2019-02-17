@@ -26,10 +26,11 @@ portis.provider.enable().then(console.log)
     });
 
 //}
-
+*/
 // Website on load processes
 jQuery(document).ready(function ($) {
     "use strict";
+	/*
     // Add information in website from MetaMask
     if (typeof web3 !== 'undefined') {
         console.warn("asdsad")
@@ -46,6 +47,7 @@ jQuery(document).ready(function ($) {
         $('.w_address, .w_balance').html('Error');
     }
 	alert("Outside of jplayer");
+	*/
 	/* jPlayer! */
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function () {
@@ -77,12 +79,3 @@ function timeConverter(UNIX_timestamp) {
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
 }
-<<<<<<< HEAD
-
-/* jPlayer code! */
-$(document).ready(function(){
-  
-});
-=======
-*/
->>>>>>> fbc32000e8fcc86953456137e219971f1786a293
