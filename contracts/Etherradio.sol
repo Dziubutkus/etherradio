@@ -11,7 +11,7 @@ contract Etherradio is Ownable {
     // Subscription price
     uint subscriptionPrice = 1 ether;
     // Array of artists
-    address payable[] public artists;
+    //address payable[] public artists;
     mapping (address => bool) public allowedArtists;
     mapping (address => bool) public subscribedUsers;
     //mapping (address => Song) public songsToAddress;
@@ -48,14 +48,13 @@ contract Etherradio is Ownable {
     }
 
     function addSong(string memory _songName, address payable[] memory _artists, uint[] memory _royalties) onlyOwner public {
-        Song storage songsTemp = songs[numberOfSongs];
+        Song memory songsTemp;
         songsTemp.songOwner = msg.sender;
         songsTemp.songName = _songName;
         songsTemp.artists = _artists;
         songsTemp.royalties = _royalties;
         songs.push(songsTemp);
 
-        //songsToAddress[msg.sender] = songsTemp;
         addressToSongs[msg.sender][numberOfSongs] = songsTemp;
         numberOfSongs++;
 
