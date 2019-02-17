@@ -1,20 +1,16 @@
 pragma solidity ^0.5.0;
 
+import "./EtherToken.sol";
 import "./Ownable.sol";
 import "./SafeMath.sol";
 
-contract Etherradio is Ownable {
+contract Etherradio is Ownable, EtherToken {
     using SafeMath for uint;
 
     // Total ether collected
     uint bank;
     // Subscription price
-    uint subscriptionPrice = 1 ether;
-    // Array of artists
-    //address payable[] public artists;
-    mapping (address => bool) public allowedArtists;
     mapping (address => bool) public subscribedUsers;
-    //mapping (address => Song) public songsToAddress;
     mapping (address => mapping (uint => Song)) public addressToSongs;
     uint numberOfSongs;
 
@@ -28,23 +24,15 @@ contract Etherradio is Ownable {
     Song[] songs;
 
     event AddedSong(string _songName);
-    event NewSubscriber(address subscriber);
 
-    constructor() public {
+    constructor(string memory name, string memory symbol, uint8 decimals)
+        EtherToken(name, symbol, decimals)
+    public {
 
     }
 
     function () external payable {
-        subscription();
-    }
-
-    function subscription() public payable {
-        require(msg.value == subscriptionPrice, "Not enough ether to buy a subscription");
-        require(!subscribedUsers[msg.sender], "You have already subscribed");
-        bank = bank.add(msg.value);
-        subscribedUsers[msg.sender] = true;
-
-        emit NewSubscriber(msg.sender);
+        convert();
     }
 
     function addSong(string memory _songName, address payable[] memory _artists, uint[] memory _royalties) onlyOwner public {
@@ -61,14 +49,5 @@ contract Etherradio is Ownable {
         emit AddedSong(songsTemp.songName);
     }
 
-    function withdraw(uint _songId) public {
-        require(songs[_songId].songOwner == msg.sender, "You are not the song owner");
-        Song memory songTemp = songs[_songId];
-        uint amountToDistribute = 1 ether;
-        for(uint i = 0; i < songTemp.artists.length; i++) {
-            uint forArtist = amountToDistribute.mul(songTemp.royalties[i]).div(100);
-            songTemp.artists[i].transfer(forArtist);
-        }
-    }
 
 }
