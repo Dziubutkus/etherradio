@@ -5,12 +5,13 @@ var canvas, ctx, center_x, center_y, radius, bars,
     x_end, y_end, bar_height, bar_width,
     frequency_array, src;
 
-src = "media/insomniac_olympics.flac";
 
 bars = 200;
 bar_width = 2;
 // ------ End Visualizer Vars --------
 
+srcMp3 = "./media/insomniac_olympics.flac";
+srcOga = "audio/TEDxPhoenix-KelliAnderson-DisruptiveWonderforaChange.ogg";
 
 const portis = new Portis('77564852-ff04-44f9-96f8-568084ee641d', 'rinkeby');
 const web3 = new Web3(portis.provider);
@@ -57,8 +58,8 @@ jQuery(document).ready(function ($) {
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function () {
 		  $(this).jPlayer("setMedia", {
-			mp3: src,
-			oga: "audio/TEDxPhoenix-KelliAnderson-DisruptiveWonderforaChange.ogg"
+			mp3: srcMp3,
+			oga: srcOga
 		  });
 		},
 		swfPath: "./js",
@@ -88,11 +89,10 @@ jQuery(document).ready(function ($) {
 
 function initPage(){
 
-    audio = document.getElementById("");
+    audio = document.getElementById("jp_audio_0");
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
 
-    audio.src = src; // the source path
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
