@@ -1,4 +1,4 @@
-var mockAddress = "0x9a6cD521EE8d43A17Be8138f962793385Cee158E";
+var mockAddress = "0x5fEA73469eC15ee5feC1E27E651b40F80BeECa42";
 var mockContract = null;
 // -------- Visualizer Vars
 var canvas, ctx, center_x, center_y, radius, bars,
@@ -39,7 +39,6 @@ jQuery(document).ready(function ($) {
     "use strict";
 
     $('#play').click(function() {
-        console.log(defaultAccount);
         window.radioContract.methods.listen().send({from: defaultAccount}, function(err, resp) {
             console.error(err);
             console.warn(resp);
@@ -65,6 +64,13 @@ jQuery(document).ready(function ($) {
 		swfPath: "./js",
 		supplied: "mp3,oga"
 	});
+
+	$("#exchange").click(function() {
+        window.radioContract.methods.convert().send({from: defaultAccount, value: 1000000000000000}, function(err, resp) {
+            console.error(err);
+            console.warn(resp);
+        });
+    });
     // Add information in website from MetaMask
     /*
     if (typeof web3 !== 'undefined') {
