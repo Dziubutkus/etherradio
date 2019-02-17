@@ -26,7 +26,7 @@ contract Etherradio is Ownable, EtherToken {
     event AddedSong(string _songName);
 
     constructor(string memory name, string memory symbol, uint8 decimals)
-        EtherToken(name, symbol, decimals)
+    EtherToken(name, symbol, decimals)
     public {
 
     }
@@ -49,5 +49,10 @@ contract Etherradio is Ownable, EtherToken {
         emit AddedSong(songsTemp.songName);
     }
 
+    function listen() public {
+        require(balanceOf(msg.sender) >= 1);
+        Song memory temp = songs[0];
+        _transfer(msg.sender, temp.songOwner, 10);
+    }
 
 }

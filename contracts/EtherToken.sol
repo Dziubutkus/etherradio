@@ -5,9 +5,11 @@ import "./erc20/ERC20Detailed.sol";
 //import "./erc20/ERC20Burnable.sol";
 import "./SafeMath.sol";
 
-
 contract EtherToken is ERC20Mintable, ERC20Detailed {
     using SafeMath for uint;
+
+    uint rate = 1000000;
+
     constructor(string memory name, string memory symbol, uint8 decimals)
         ERC20Detailed(name, symbol, decimals)
     public
@@ -18,19 +20,10 @@ contract EtherToken is ERC20Mintable, ERC20Detailed {
     // exchange ether to tokens
     function convert() public payable {
         require(msg.value > 0);
-        uint tokensToMint = (msg.value).sub(1000000);
+        uint tokensToMint = msg.value.mul(10000000);
         _mint(msg.sender, tokensToMint);
     }
-/*
-    function convertBack(uint tokenAmount) public {
-        require(balanceOf(msg.sender) >= tokenAmount, "You don't have that many tokens");
-        uint amountToSend = tokenAmount.mul(1000000);
-        burn(tokenAmount);
-        msg.sender.transfer(amountToSend);
-    }
-*/
 
 
-    
 
 }

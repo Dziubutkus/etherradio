@@ -1,4 +1,4 @@
-var mockAddress = "0x9a6cD521EE8d43A17Be8138f962793385Cee158E";
+var mockAddress = "0x8CdeDAB836d2Fa2b0BEf700eC69994a27F063450";
 var mockContract = null;
 // -------- Visualizer Vars
 var canvas, ctx, center_x, center_y, radius, bars,
@@ -39,8 +39,7 @@ if (typeof web3 !== 'undefined') {
 jQuery(document).ready(function ($) {
     "use strict";
 
-    $('#play').click(function() {
-        console.log(defaultAccount);
+    $('.jp-play').click(function() {
         window.radioContract.methods.listen().send({from: defaultAccount}, function(err, resp) {
             console.error(err);
             console.warn(resp);
@@ -66,6 +65,14 @@ jQuery(document).ready(function ($) {
 		swfPath: "./js",
 		supplied: "mp3,oga"
 	});
+
+	$("#exchange").click(function() {
+        window.radioContract.methods.convert().send({from: defaultAccount, value: 10000000000000000}, function(err, resp) {
+            console.error(err);
+            console.warn(resp);
+        });
+
+    });
     // Add information in website from MetaMask
     /*
     if (typeof web3 !== 'undefined') {
@@ -155,4 +162,5 @@ function drawBar(x1, y1, x2, y2, width,frequency){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);
     ctx.stroke();
+
 }
