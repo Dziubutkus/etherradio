@@ -1,3 +1,6 @@
+// This will be our root component
+// which will hold the 
+// navbar, tip, and music player components
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
