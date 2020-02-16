@@ -4,6 +4,7 @@
 import React from 'react';
 import Background from './Background'
 import logo from './logo.svg';
+import AlbumArt from './AlbumArt'
 import './style.css';
 
 function App() {
@@ -13,10 +14,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+          <h1>ETHERRADIO</h1>
+			    <ul id="links"><li><a href="#" id="exchange">Exchange</a></li></ul>
+          <img src={logo} className="App-logo" alt="logo" />
+          <AlbumArt image='./media/vultures.png'/>
       </header>
+
       <body>
         <Background />
+        
       </body>
     </div>
   );
